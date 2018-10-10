@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
+import {RegisterService} from '../../services/register.service';
 
 @Component({
     selector: 'app-register-main',
@@ -7,16 +8,15 @@ import {FormControl} from '@angular/forms';
     styleUrls: ['./register-main.component.scss']
 })
 export class RegisterMainComponent implements OnInit {
-    public registerForm = [];
 
-    constructor() {
+    constructor(private register: RegisterService) {
     }
 
     ngOnInit() {
     }
 
     doSomething(ceva) {
-        console.log(ceva.value);
+        this.register.registerUser(ceva.value);
     }
 
 }
