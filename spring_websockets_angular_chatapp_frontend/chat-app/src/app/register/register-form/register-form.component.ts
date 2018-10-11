@@ -15,13 +15,14 @@ export class RegisterFormComponent implements OnInit {
     @Output() registerData: EventEmitter<any> = new EventEmitter<any>();
 
     public registerForm = this.formBuilder.group({
-        name: [''],
-        email: [''],
+        name: ['', Validators.required],
+        username: ['', Validators.required],
+        email: ['', Validators.required],
         passwords: this.formBuilder.group({
             password: ['', Validators.required],
             confirmPassword: ['', Validators.required]
         }, {
-            validator: PasswordValidation.matchPassword // your validation method
+            validator: PasswordValidation.matchPassword
         })
     });
 
@@ -30,13 +31,6 @@ export class RegisterFormComponent implements OnInit {
 
     ngOnInit() {
         this.user = new User();
-        // this.registerForm = new FormGroup({
-        //     'name': new FormControl(this.user.name, [Validators.required,
-        //         Validators.minLength(2)]),
-        //     'email': new FormControl(this.user.email),
-        //     'password': new FormControl(this.user.password),
-        //     'confirmPassword': new FormControl(this.user.confirmPassword)
-        // });
     }
 
     public goBack() {
@@ -44,7 +38,10 @@ export class RegisterFormComponent implements OnInit {
     }
 
     public onSubmit() {
-        this.registerData.emit(this.registerForm);
+        const user = new User(this.registerForm.value.name, this.registerForm.value.username,
+            this.registerForm.value.email, this.registerForm.value.passwords.password);
+        console.log(user);
+        this.registerData.emit(user);
     }
 
 }

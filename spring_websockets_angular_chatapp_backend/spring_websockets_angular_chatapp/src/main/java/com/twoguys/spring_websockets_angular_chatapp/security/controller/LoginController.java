@@ -36,7 +36,7 @@ public class LoginController {
   @Autowired
   private LoginService userDetailsService;
 
-  @RequestMapping(value = "/login/", produces = MediaType.APPLICATION_JSON_VALUE,
+  @RequestMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE,
       consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
   public ResponseEntity<?> login(@RequestBody LoginDto loginDto)
       throws AuthenticationException {

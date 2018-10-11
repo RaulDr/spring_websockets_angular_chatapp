@@ -4,9 +4,11 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RegisterFormComponent} from './register/register-form/register-form.component';
 import {AppRoutingModule} from './app-routing.module';
-import { MainComponent } from './main/main/main.component';
-import { RegisterMainComponent } from './register/register-main/register-main.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {MainComponent} from './main/main/main.component';
+import {RegisterMainComponent} from './register/register-main/register-main.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {ConfigService} from './config/config.service';
 
 @NgModule({
     declarations: [
@@ -18,9 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [ConfigService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

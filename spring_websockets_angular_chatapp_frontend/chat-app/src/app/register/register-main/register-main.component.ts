@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {RegisterService} from '../../services/register.service';
+import {ApiService} from '../../services/api.service';
 
 @Component({
     selector: 'app-register-main',
@@ -9,14 +10,17 @@ import {RegisterService} from '../../services/register.service';
 })
 export class RegisterMainComponent implements OnInit {
 
-    constructor(private register: RegisterService) {
+    constructor(private register: RegisterService, private apiService: ApiService) {
     }
 
     ngOnInit() {
     }
 
-    doSomething(ceva) {
-        this.register.registerUser(ceva.value);
+    doSomething(user) {
+        this.register.registerUser(user);
+        this.apiService.registerUser('/user/createAccount', user).subscribe(() => {
+            console.log('posted');
+        });
     }
 
 }
