@@ -24,8 +24,6 @@ public class DummyController {
         DummyUser dummyUser = new DummyUser();
         dummyUser.setName("userTest");
         dummyUser.setPassword("passTest");
-        dummyUser.setCreatedAt(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        dummyUser.setUpdatedAt(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         dummyService.saveDummyUser( dummyUser);
         return "rest is working";
     }

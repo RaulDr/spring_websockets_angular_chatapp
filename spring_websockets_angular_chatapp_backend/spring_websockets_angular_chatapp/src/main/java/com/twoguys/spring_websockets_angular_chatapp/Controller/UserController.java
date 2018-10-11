@@ -17,7 +17,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping(path = "/admin/createAccount")
-    public void createUserAccount(@RequestBody UserDTO userDTO){
+    public void createUserAccount(@RequestBody UserDTO userDTO) {
         userService.createUserAccount(userDTO);
     }
 }

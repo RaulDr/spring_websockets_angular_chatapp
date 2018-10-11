@@ -26,6 +26,8 @@ public class UserServiceImpl implements UserService {
     private User convertUserDTOToUser(UserDTO userDTO){
         User user = new User();
         user.setUsername(userDTO.getUsername());
+        user.setName(userDTO.getName());
+        user.setEmail(userDTO.getEmail());
         user.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
         user.setEnabled(true);
         user.setRole(userDTO.getRole());
@@ -36,5 +38,4 @@ public class UserServiceImpl implements UserService {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

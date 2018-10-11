@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "dummyuser")
 @Setter
-public class DummyUser extends AuditModel{
+public class DummyUser{
 
     //TODO:let's see about this
     @Id
