@@ -39,4 +39,11 @@ dependencies {
 	compile ( 'org.springframework.mobile:spring-mobile-device:1.1.5.RELEASE')
 	compile ('io.jsonwebtoken:jjwt:0.7.0')
 	compile('org.springframework.session:spring-session-core')
-}
+
+	//webSockets
+	compile("org.springframework.boot:spring-boot-starter-websocket")
+
+
+	//rebuild project dependency
+    compile("org.springframework.boot:spring-boot-devtools")
+    }

@@ -12,19 +12,19 @@ import java.time.ZoneId;
 import java.util.Date;
 
 @RestController
-@RequestMapping({"", "/"})
+//@RequestMapping({"", "/"})
 public class DummyController {
 
-    @Autowired
-    DummyService dummyService;
-
-    @GetMapping
-    public String getDummy(){
-        LocalDate localDate = LocalDate.now();
-        DummyUser dummyUser = new DummyUser();
-        dummyUser.setName("userTest");
-        dummyUser.setPassword("passTest");
-        dummyService.saveDummyUser( dummyUser);
-        return "rest is working";
-    }
+//    @Autowired
+//    DummyService dummyService;
+//
+//    @GetMapping
+//    public String getDummy(){
+//        LocalDate localDate = LocalDate.now();
+//        DummyUser dummyUser = new DummyUser();
+//        dummyUser.setName("userTest");
+//        dummyUser.setPassword("passTest");
+//        dummyService.saveDummyUser( dummyUser);
+//        return "rest is working";
+//    }
 }
