@@ -25,6 +25,6 @@ public class UserController {
     public ResponseEntity<?> createUserAccount(@RequestBody UserDTO userDTO) {
         System.out.println(userDTO);
         userService.createUserAccount(userDTO);
-        return (ResponseEntity<?>) ResponseEntity.notFound();
+        return ResponseEntity.ok(new Success(true));
     }
 }

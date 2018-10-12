@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {RegisterService} from '../../services/register.service';
-import {ApiService} from '../../services/api.service';
+import {RegisterService} from '../../../services/register.service';
+import {ApiService} from '../../../services/api.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-register-main',
@@ -10,7 +11,7 @@ import {ApiService} from '../../services/api.service';
 })
 export class RegisterMainComponent implements OnInit {
 
-    constructor(private register: RegisterService, private apiService: ApiService) {
+    constructor(private register: RegisterService, private apiService: ApiService, private router: Router) {
     }
 
     ngOnInit() {
@@ -20,6 +21,8 @@ export class RegisterMainComponent implements OnInit {
         this.register.registerUser(user);
         this.apiService.registerUser('/user/createAccount', user).subscribe(() => {
             console.log('posted');
+            // redirect
+            this.router.navigate(['main']);
         });
     }
 

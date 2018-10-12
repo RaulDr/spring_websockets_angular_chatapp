@@ -41,6 +41,14 @@ export class ApiService {
         ).pipe(map((res: Response) => res.json()), catchError(this.formatErrors));
     }
 
+    loginUser(path: String, body: Object = {}): Observable<any> {
+        return this.http.post(
+            `${environment.api_url}${path}`,
+            JSON.stringify(body),
+            httpOptions
+        );
+    }
+
     registerUser(path: string, body: Object = {}): Observable<any> {
         return this.http.post(
             `${environment.api_url}${path}`,

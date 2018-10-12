@@ -1,7 +1,7 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {User} from '../../model/user';
+import {User} from '../../../model/user';
 import {PasswordValidation} from './password-validation';
 
 @Component({
