@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -22,20 +23,20 @@ public abstract class AuditModel implements Serializable {
 
     @Column(name = "created_at", insertable = true, updatable = false)
     @CreatedDate
-    private LocalDateTime createdAt;
+    private Timestamp createdAt;
 
     @Column(name = "updated_at", insertable = false, updatable = true)
     @LastModifiedDate
-    private LocalDateTime updatedAt;
+    private Timestamp updatedAt;
 
     @PrePersist
     void onCreate() {
-        this.updatedAt = LocalDateTime.now();
+        this.setCreatedAt(new Timestamp((new Date()).getTime()));
     }
 
     @PreUpdate
     void onPersist() {
-        this.createdAt = LocalDateTime.now();
+        this.setUpdatedAt(new Timestamp((new Date()).getTime()));
     }
 
 }

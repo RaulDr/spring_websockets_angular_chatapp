@@ -61,7 +61,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         // don't create session
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 
-        .authorizeRequests().antMatchers("/api/login/**", "/api/admin/createAccount**").permitAll()
+        .authorizeRequests().antMatchers("/api/login", "/api/user/createAccount**").permitAll()
         .antMatchers(HttpMethod.GET, "/", "/**/*.html", "/**/*.{png,jpg,jpeg,svg.ico}", "/**/*.css",
             "/**/*.js")
         .permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest()
