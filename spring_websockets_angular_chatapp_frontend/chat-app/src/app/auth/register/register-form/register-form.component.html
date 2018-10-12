@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name"> Name: </label>
+                <input id="name" class="form-control" type="text" formControlName="name">
+            </div>
+
+            <div class="form-group">
+                <label for="username"> username: </label>
+                <input id="username" class="form-control" type="text" formControlName="username">
+            </div>
+            <div class="form-group">
+                <label for="email"> email: </label>
+                <input id="email" class="form-control" type="text" formControlName="email">
+            </div>
+            <form [formGroup]="registerForm.get('passwords')">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                            type="password"
+                            id="password"
+                            class="form-control"
+                            formControlName="password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Conform Password</label>
+                    <input
+                            type="password"
+                            class="form-control"
+                            id="confirmPassword"
+                            formControlName="confirmPassword">
+                </div>
+                <div class="alert alert-danger"
+                     *ngIf="registerForm.get('passwords').errors?.matchPassword && (registerForm.touched || registerForm.dirty)">
+                    Passwords don't match
+                </div>
+            </form>
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Submit</button>
+                <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+            </div>
+        </form>
+    </div>
+</div>

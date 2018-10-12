@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
@@ -25,8 +24,6 @@ public class DummyController {
         DummyUser dummyUser = new DummyUser();
         dummyUser.setName("userTest");
         dummyUser.setPassword("passTest");
-        dummyUser.setCreatedAt(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        dummyUser.setUpdatedAt(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         dummyService.saveDummyUser( dummyUser);
         return "rest is working";
     }
